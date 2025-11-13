@@ -17,7 +17,7 @@ class BaseInitData(
                 return@ApplicationRunner
             }
 
-            val post1 = Post(0, "제목", "내용")
+            val post1 = Post("제목", "내용")
             postRepository.save(post1)
         }
     }

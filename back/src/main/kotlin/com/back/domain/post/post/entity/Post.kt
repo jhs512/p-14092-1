@@ -1,25 +1,14 @@
 package com.back.domain.post.post.entity
 
-import jakarta.persistence.*
-import jakarta.persistence.GenerationType.IDENTITY
-import org.springframework.data.annotation.CreatedDate
-import org.springframework.data.annotation.LastModifiedDate
-import org.springframework.data.jpa.domain.support.AuditingEntityListener
-import java.time.LocalDateTime
+import com.back.global.jpa.entity.BaseTime
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
 
 @Entity
-@EntityListeners(AuditingEntityListener::class)
 class Post(
-    @field:Id
-    @field:GeneratedValue(strategy = IDENTITY)
-    val id: Int = 0,
     var title: String,
     @field:Column(columnDefinition = "TEXT")
     var content: String,
-) {
-    @CreatedDate
-    lateinit var createDate: LocalDateTime
+) : BaseTime() {
 
-    @LastModifiedDate
-    lateinit var modifyDate: LocalDateTime
 }
